@@ -9,7 +9,7 @@ public class CameraPosition : MonoBehaviour
     [SerializeField]
     private Vector3 localOffset;
 
-    private void Update()
+    public void Update()
     {
         if (target == null)
             return;

@@ -10,9 +10,9 @@ public class Wheel : MonoBehaviour
     [SerializeField] private Torque torque;
 
     public Car Car { get => car; set => car = value; }
+    public bool IsGrounded { get; private set; } = false;
 
     private Car car;
-    private bool grounded = false;
 
     public void Initialize(Car car)
     {
@@ -22,15 +22,15 @@ public class Wheel : MonoBehaviour
         torque.Initialize(this);
     }
 
-    public void Tick(Vector2 input)
+    public void Tick()
     {
-        grounded = Physics.Raycast(this.transform.position, -this.transform.up, out RaycastHit hit, radius, ground.value);
+        IsGrounded = Physics.Raycast(this.transform.position, -this.transform.up, out RaycastHit hit, radius, ground.value);
 
-        if (grounded)
+        if (IsGrounded)
         {
             spring.Tick(hit);
             grip.Tick(hit);
-            torque.Tick(hit, input.y);
+            torque.Tick(hit);
         }
     }
 }

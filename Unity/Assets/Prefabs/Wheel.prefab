@@ -169,5 +169,5 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    torqueScale: 5
-    maximumTorqueContributionVelocity: 25
+    torqueScale: 70
+    maximumTorqueContributionVelocity: 35
